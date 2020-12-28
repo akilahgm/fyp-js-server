@@ -26,7 +26,9 @@ export class DataService {
     for (const iterator of ids) {
       const res = await contract.methods.exchangeFromId(iterator).call();
       console.log('result', res);
-      results.push(res);
+      if (res.status === '0') {
+        results.push(res);
+      }
     }
     return results;
   }
