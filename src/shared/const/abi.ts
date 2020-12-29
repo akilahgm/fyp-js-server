@@ -4,6 +4,79 @@
 // tslint:disable:trailing-comma
 export const escrowABI = [
   {
+    inputs: [],
+    stateMutability: 'payable',
+    type: 'constructor'
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: 'string',
+        name: 'description',
+        type: 'string'
+      }
+    ],
+    name: 'LogEvent',
+    type: 'event'
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: 'uint256',
+        name: 'exchangeId',
+        type: 'uint256'
+      },
+      {
+        indexed: false,
+        internalType: 'string',
+        name: 'description',
+        type: 'string'
+      }
+    ],
+    name: 'LogExchangeEvent',
+    type: 'event'
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: 'bytes32',
+        name: 'queryId',
+        type: 'bytes32'
+      },
+      {
+        indexed: false,
+        internalType: 'string',
+        name: 'description',
+        type: 'string'
+      }
+    ],
+    name: 'LogNewProvableQuery',
+    type: 'event'
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: 'string',
+        name: 'description',
+        type: 'string'
+      }
+    ],
+    name: 'LogProvableQueryError',
+    type: 'event'
+  },
+  {
+    stateMutability: 'payable',
+    type: 'fallback'
+  },
+  {
     inputs: [
       {
         internalType: 'bytes32',
@@ -41,6 +114,25 @@ export const escrowABI = [
     ],
     name: '__callback',
     outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function'
+  },
+  {
+    inputs: [
+      {
+        internalType: 'string',
+        name: 'IP',
+        type: 'string'
+      }
+    ],
+    name: 'changeCordaIP',
+    outputs: [
+      {
+        internalType: 'bool',
+        name: '',
+        type: 'bool'
+      }
+    ],
     stateMutability: 'nonpayable',
     type: 'function'
   },
@@ -105,65 +197,6 @@ export const escrowABI = [
     ],
     stateMutability: 'payable',
     type: 'function'
-  },
-  {
-    inputs: [],
-    stateMutability: 'payable',
-    type: 'constructor'
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: false,
-        internalType: 'string',
-        name: 'description',
-        type: 'string'
-      }
-    ],
-    name: 'EventTriggered',
-    type: 'event'
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: false,
-        internalType: 'string',
-        name: 'description',
-        type: 'string'
-      }
-    ],
-    name: 'LogNewProvableQuery',
-    type: 'event'
-  },
-  {
-    inputs: [
-      {
-        internalType: 'uint256',
-        name: 'exchangeId',
-        type: 'uint256'
-      },
-      {
-        internalType: 'string[]',
-        name: 'args',
-        type: 'string[]'
-      }
-    ],
-    name: 'requestRefund',
-    outputs: [
-      {
-        internalType: 'bool',
-        name: '',
-        type: 'bool'
-      }
-    ],
-    stateMutability: 'nonpayable',
-    type: 'function'
-  },
-  {
-    stateMutability: 'payable',
-    type: 'fallback'
   },
   {
     inputs: [
@@ -290,6 +323,19 @@ export const escrowABI = [
     type: 'function'
   },
   {
+    inputs: [],
+    name: 'getCordaIP',
+    outputs: [
+      {
+        internalType: 'string',
+        name: '',
+        type: 'string'
+      }
+    ],
+    stateMutability: 'nonpayable',
+    type: 'function'
+  },
+  {
     inputs: [
       {
         internalType: 'address',
@@ -351,6 +397,25 @@ export const escrowABI = [
       }
     ],
     stateMutability: 'view',
+    type: 'function'
+  },
+  {
+    inputs: [
+      {
+        internalType: 'uint256',
+        name: 'exchangeId',
+        type: 'uint256'
+      }
+    ],
+    name: 'requestRefund',
+    outputs: [
+      {
+        internalType: 'bool',
+        name: '',
+        type: 'bool'
+      }
+    ],
+    stateMutability: 'nonpayable',
     type: 'function'
   },
   {

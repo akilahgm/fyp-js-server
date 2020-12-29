@@ -60,7 +60,7 @@ export class DataService {
     console.log('result->>', result.data);
     const hexString = result.data.result;
     // hex2a(hexString);
-    return { data: res };
+    return { data: res, address: contractAddress };
   }
 
   async claimExchange(exchangeId: string): Promise<any> {
@@ -109,7 +109,7 @@ export class DataService {
 
     // console.log('Result', resp.data);
 
-    return { data: hexTx };
+    return { data: hexTx, address: contractAddress };
   }
 }
 
